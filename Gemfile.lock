@@ -1,0 +1,16 @@
+PATH
+  remote: .
+  specs:
+    fs-watch (0.1)
+      ruby-fsevent
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    ruby-fsevent (0.2.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  fs-watch!

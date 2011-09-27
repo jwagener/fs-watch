@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+require 'fsevent'
+
+class FsWatch < FSEvent
+  def on_change(directories)
+    #puts "Detected change in: #{directories.inspect}"
+    puts "screaming for change"
+  end
+end
+
+dirs = ARGV[0..-2]
+cmd  = ARGV.last
+
+fs_watch = FsWatch.new
+fs_watch.watch_directories %W(#{Dir.pwd} /tmp)
+fs_watch.start
