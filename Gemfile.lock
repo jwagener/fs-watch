@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fs-watch (0.1)
+    fs-watch (0.2)
       ruby-fsevent
 
 GEM

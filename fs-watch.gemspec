@@ -5,11 +5,11 @@ $:.unshift lib unless $:.include?(lib)
 Gem::Specification.new do |s|
   s.name        = "fs-watch"
   s.rubyforge_project = "fs-watch"
-  s.version     = "0.1"
+  s.version     = "0.2"
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Johannes Wagener"]
   s.email       = ["johannes@wagener.cc"]
-  s.homepage    = "http://github.com/jwagener/fs-watch"
+  s.homepage    = "http://johannes.wagener.cc"
   s.summary     = "Script to watch files and directories for changes and execute a command (OSX only)"
   s.description = <<-EOF
     Script to watch files and directories for changes and execute a command. (OSX Only)
@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'ruby-fsevent'
   
   s.license      = "MIT"
-  s.files        = %w(README.md bin/fs-watch)
+  s.files        = %w(README.md bin/fs-watch lib/fs_watch.rb)
   #s.require_path = 'lib'
   s.executables  = ['fs-watch']
 end

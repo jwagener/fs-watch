@@ -1,16 +1,17 @@
 #!/usr/bin/env ruby
-require 'fsevent'
+require 'fs_watch'
 
-class FsWatch < FSEvent
-  def on_change(directories)
-    #puts "Detected change in: #{directories.inspect}"
-    puts "screaming for change"
-  end
+if ARGV.size >= 2 
+  dirs = ARGV[0..-2]
+  cmd  = ARGV.last
+  Signal.trap("INT") { exit }
+  
+  fs_watch = FsWatch.new
+  fs_watch.watch_directories dirs
+  fs_watch.cmd = cmd
+  fs_watch.start  
+else
+  puts "Usage: "
+  puts %{ $ fs-watch [directoriesToWatch] "echo 'command to run'" }
+  exit(1)
 end
-
-dirs = ARGV[0..-2]
-cmd  = ARGV.last
-
-fs_watch = FsWatch.new
-fs_watch.watch_directories %W(#{Dir.pwd} /tmp)
-fs_watch.start
